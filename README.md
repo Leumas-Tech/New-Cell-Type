@@ -17,6 +17,7 @@ With **3D Programming**, we integrate AI not only into **digital** tasks (like t
 ## What Are Cell Types?
 
 In **3D Programming**, each **Cell** is like a **modular block** within a bigger 2D or 3D grid. Now, we’re adding a **layer** of customization: the **Cell Type**. A cell type:
+
 - Defines **UI & logic** for a specific function or workflow.
 - Can incorporate **front-end** (React-based) rendering + **optional** backend execution logic.
 - Lets you tie into AI watchers, triggers, or any external system.
@@ -50,8 +51,6 @@ We provide a minimal **Cell Boilerplate** that any front-end dev can clone and m
 
 **Example Folder Structure**:
 
-
-
 ```bash
 my-cell-library
 • CellSelector.jsx
@@ -61,26 +60,13 @@ my-cell-library
 • (optional) index.js for exporting or aggregating all cells
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 2. Creating Your Own Cell File
 
 > **Example:** `MyAIImageCell.jsx`
 
 1. **Import** React, define props:
-   
-   ```jsx
+
+```jsx
    import React, { useState } from 'react';
 
    function MyAIImageCell({
@@ -109,15 +95,14 @@ my-cell-library
        </div>
      );
    }
-
    export default MyAIImageCell;
+
 ```
 
-2. Register the cell you created into our Google spreadsheet so we can have an index of all available cell types. Keeping track of the owner of each cell type. (Plugin system will be adopted soon)
+1. Register the cell you created into our Google spreadsheet so we can have an index of all available cell types. Keeping track of the owner of each cell type. (Plugin system will be adopted soon)
 
-3. Adding Optional Backend Logic
+2. Adding Optional Backend Logic
 If your cell needs a server-side operation (e.g., calling DALL·E API), create a small endpoint or function in the environment’s backend code:
-
 
 ```js
    function myCellsFunction (cellData) {
@@ -127,27 +112,30 @@ If your cell needs a server-side operation (e.g., calling DALL·E API), create a
    }
 ```
 
-
-
 ## Syntax & Rules for Cell Types
 
 ### Use `specialConfig` for All Custom Fields
+
 - Ensures the main environment can load/save your cell’s data seamlessly.
 - Avoid persisting crucial states solely in local `useState`. Use `specialConfig` to store them so the parent grid knows about changes.
 
 ### Implement `handleSpecialConfigChange(fieldName, newValue)`
+
 - Whenever a user modifies a setting, call `handleSpecialConfigChange(...)`.
 - This preserves changes in the parent grid, ensuring the cell’s config is consistent.
 
 ### Keep the UI Minimal or Highly Focused
+
 - A cell is typically a single-page component; avoid overcomplicating it with too many nested sections.
 - Focus on one primary function or workflow per cell.
 
 ### Optional: Reference Other Cells
+
 - If your cell needs data from a neighbor, accept props like `availableCells` or `cellsMap`.
 - Look up references to fetch or share data among cells.
 
 ### Backend Execution
+
 - If you need advanced logic on the server side, define how your environment calls that endpoint (e.g., a named route).
 - If no custom backend is specified, the system will simply parse the cell’s config by default when executed.
 
@@ -156,24 +144,31 @@ If your cell needs a server-side operation (e.g., calling DALL·E API), create a
 ## Ideas for New Cells
 
 ### Markdown Documentation Cell
+
 - Renders user-provided Markdown to annotate or document a grid.
 
 ### Image/Video Recorder Cell
+
 - Captures webcam or screen footage, storing results in the environment for later use.
 
 ### Time-Based Trigger Cell
+
 - Runs tasks at set intervals or specific times.
 
 ### IoT Device Controller
+
 - Bridges AI with physical hardware, like turning lights on/off or reading sensor data.
 
 ### Social Media Poster
+
 - Takes text and images from `specialConfig` and posts them to platforms like Twitter or Instagram.
 
 ### AI Nudger
+
 - Interprets outputs from other cells, then nudges the user with suggestions on what to do next.
 
 ### E-Commerce Watcher
+
 - Monitors sales or inventory data, triggers reorders if stock dips below a threshold.
 
 ---
