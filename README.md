@@ -118,12 +118,12 @@ my-cell-library
 If your cell needs a server-side operation (e.g., calling DALL·E API), create a small endpoint or function in the environment’s backend code:
 
 
-```javascript
-function myCellsFunction (cellData) {
-  console.log("Cell data is an object " , cellData)
-  // You have full control over the function thats gets ran
-  // This can be for ANY use case your heart desires. But try not to be redundant. Quality over quanitity when it comes to crafting cells will go a very long way. 
-}
+```js
+   function myCellsFunction (cellData) {
+     console.log("Cell data is an object " , cellData)
+     // You have full control over the function thats gets ran
+     // This can be for ANY use case your heart desires. But try not to be redundant. Quality over quanitity when it comes to crafting cells will go a very long way. 
+   }
 ```
 
 
