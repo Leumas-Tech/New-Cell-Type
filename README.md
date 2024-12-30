@@ -112,6 +112,7 @@ my-cell-library
 
    export default MyAIImageCell;
 ```
+
 2. Register the cell you created into our Google spreadsheet so we can have an index of all available cell types. Keeping track of the owner of each cell type. (Plugin system will be adopted soon)
 
 3. Adding Optional Backend Logic
