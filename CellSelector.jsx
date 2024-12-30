@@ -7,6 +7,18 @@ import React, { useState, useEffect } from 'react';
 import ExampleCell from './ExampleCell'; // The boilerplate cell or your custom cell
 // import AnotherCell from './AnotherCell'; // Additional cells, etc.
 
+
+
+
+
+// Whenever you create a new cell you will add them in here
+// First import the cell
+// Add the cell into deafultCellTypes
+// You should be good to go, to demo as you wish. 
+// Development and features are entirely up to you. 
+
+
+
 const defaultCellTypes = {
   // The key is a short name for the cell type
   example: ExampleCell,
